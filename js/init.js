@@ -7,11 +7,20 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
-var showSpinner = function(){
+let passedThroughLogin = sessionStorage.getItem("login");
+
+if(!passedThroughLogin)
+{
+    window.location = "login.html";
+}
+
+var showSpinner = function()
+{
   document.getElementById("spinner-wrapper").style.display = "block";
 }
 
-var hideSpinner = function(){
+var hideSpinner = function()
+{
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
