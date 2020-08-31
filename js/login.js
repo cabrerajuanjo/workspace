@@ -1,6 +1,7 @@
 function autenticar()
 {
     let email = document.getElementById("email");
+    sessionStorage.setItem("user", email.value);
     let password = document.getElementById("password");
     if((email.value !== "") && (password.value !== ""))
     {
