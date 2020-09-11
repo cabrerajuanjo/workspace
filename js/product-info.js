@@ -1,8 +1,10 @@
 var product = {};
 var products = {};
+var comments = {};
 var relatedProducts = [];
 
-function showImagesGallery(array, locationId){
+function showImagesGallery(array, locationId)
+{
 
     let htmlContentToAppend = "";
     for(var i = 0; i < array.length; i++){
@@ -16,6 +18,35 @@ function showImagesGallery(array, locationId){
         `
     }
     document.getElementById(locationId).innerHTML = htmlContentToAppend;
+}
+
+function showCommentsList(array)
+{
+    let htmlContentToAppend = "";
+    for(var i = 0; i < array.length; i++){
+        let comment = array[i];
+        htmlContentToAppend += `
+            <div class="row list-group-item list-group-item-action">
+                <h4 class="mb-1">`+ comment.user + `&nbsp&nbsp&nbsp&nbsp` + comment.dateTime + `&nbsp&nbsp&nbsp&nbsp`
+
+        for (var j = 0; j < 5; j++)
+        {
+            if(j < array[i].score)
+            {
+                htmlContentToAppend += `<span class="fa fa-star checked"></span>`
+            }else
+            {
+                htmlContentToAppend += `<span class="fa fa-star"></span>`
+            }
+        }
+        htmlContentToAppend += `</h4>
+                <br>
+                <h4 class="mb-1">`+ comment.description +`</h4>
+                <br>
+            </div>
+        `
+    }
+    document.getElementById("comments").innerHTML = htmlContentToAppend;
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -39,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images, "productImagesGallery");
-
             getJSONData(PRODUCTS_URL).then(function(resultObj){
                 if (resultObj.status === "ok")
                 {
@@ -52,6 +82,15 @@ document.addEventListener("DOMContentLoaded", function(e){
                     showImagesGallery(relatedProducts, "relatedProducts");
                 }
             });
+
+        }
+    });
+
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            comments = resultObj.data;
+            showCommentsList(comments);
         }
     });
 });

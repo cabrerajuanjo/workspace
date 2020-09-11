@@ -3,90 +3,102 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>eMercado - Todo lo que busques está aquí</title>
+    <!-- Font Awesome Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" href="" id="usuario"></a>
-    </div>
-  </nav>
-  <main role="main">
-    <div class="container mt-5">
-      <div class="text-center p-4">
-        <h2>Descripción del producto</h2>
-        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
-        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
-          seleccionado previamente, siempre se visualizará el presente: <strong>Chevrolet Onix Joy</strong>.</p>
-      </div>
-      <h3 id="productName"></h3>
-      <hr class="my-3">
-      <dl>
-        <dt>Descripción</dt>
-        <dd>
-          <p id="productDescription"></p>
-        </dd>
-
-        <dt>Cantidad de productos en la categoría</dt>
-        <dd>
-          <p id="productCostAndCurrency"></p>
-        </dd>
-
-        <dt>Cantidad disponible</dt>
-        <dd>
-          <p id="productCount"></p>
-        </dd>
-
-        <dt>Imágenes</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-          </div>
-        </dd>
-        <h4>Productos relacionados</h4>
-        <hr class="my-3">
-        <div class="row text-center text-lg-left pt-2" id="relatedProducts">
+    <nav class="site-header sticky-top py-1 bg-dark">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+            <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+            <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+            <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+            <a class="py-2 d-none d-md-inline-block" href="" id="usuario"></a>
         </div>
-      </dl>
+    </nav>
+    <main role="main">
+        <div class="container mt-5">
+            <div class="text-center p-4">
+                <h2>Descripción del producto</h2>
+                <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+                <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
+                    seleccionado previamente, siempre se visualizará el presente: <strong>Chevrolet Onix Joy</strong>.</p>
+            </div>
+            <h3 id="productName"></h3>
+            <hr class="my-3">
+            <dl>
+                <dt>Descripción</dt>
+                <dd>
+                    <p id="productDescription"></p>
+                </dd>
 
-      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
+                <dt>Cantidad de productos en la categoría</dt>
+                <dd>
+                    <p id="productCostAndCurrency"></p>
+                </dd>
+
+                <dt>Cantidad disponible</dt>
+                <dd>
+                    <p id="productCount"></p>
+                </dd>
+
+                <dt>Imágenes</dt>
+                <dd>
+                    <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+                    </div>
+                </dd>
+                <h4>Productos relacionados</h4>
+                <hr class="my-3">
+                <div class="row text-center text-lg-left pt-2" id="relatedProducts">
+                </div>
+                <h4>Opiniones</h4>
+                <hr class="my-3">
+                <div class="row">
+                    <div class="list-group" id="comments">
+                    </div>
+                </div>
+            </dl>
+
+            <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
+        </div>
+    </main>
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Volver arriba</a>
+            </p>
+            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+        </div>
+    </footer>
+    <div id="spinner-wrapper">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/product-info.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/product-info.js"></script>
 </body>
 
 </html>
