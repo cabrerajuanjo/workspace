@@ -81,6 +81,10 @@ footer p {
   transform: translate(-50%, 0);
 }
 
+.product-name{
+    text-align: center;
+}
+
 .lds-ring {
   display: inline-block;
   position: relative;

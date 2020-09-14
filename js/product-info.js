@@ -3,6 +3,15 @@ var products = {};
 var comments = {};
 var relatedProductsImages = [];
 
+function average(array)
+{
+    var result = 0;
+    for (var i = 0; i < array.length; i++) {
+        result += array[i].score;
+    }
+    return (result/array.length).toFixed(1);
+}
+
 function returnImagesGalleryCode(array) {
 
     let htmlContentToAppend = "";
@@ -85,17 +94,22 @@ function showCommentsList(array) {
     document.getElementById("comments").innerHTML = htmlContentToAppend;
 }
 
+/*Si ya se seleccionó la puntuación se adiciona el nuevo comentario al arreglo de comentarios y se muestran todos.
+Luego se actualiza el valor medio, se resetean las estrellas, la variable que indica si ya se seleccionó la puntuación así
+como el contenido del la caja de texto para el comentario*/
 function upComment() {
     if (sessionStorage.getItem("selectedStarRating") == "true") {
         comments.push({
-            "score": sessionStorage.getItem("currentScore"),
+            "score": parseInt(sessionStorage.getItem("currentScore")),
             "description": document.getElementById("comment").value,
             "user": sessionStorage.getItem("user"),
             "dateTime": new Date().toLocaleString()
         });
         showCommentsList(comments);
+        document.getElementById("averageScore").innerHTML = average(comments) + `/5` + `<span class="fa fa-star checked"></span>`;
         document.getElementById("starRating").innerHTML = returnStarRatingCode(0, true);
         sessionStorage.setItem("selectedStarRating", false);
+        document.getElementById("comment").value = "";
     } else {
         alert("Seleccione puntuación")
     }
@@ -140,6 +154,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj) {
         if (resultObj.status === "ok") {
             comments = resultObj.data;
+            document.getElementById("averageScore").innerHTML = average(comments) + `/5` + `<span class="fa fa-star checked"></span>`;
             showCommentsList(comments);
         }
     });
