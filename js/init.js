@@ -10,12 +10,20 @@ const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 let passedThroughLogin = sessionStorage.getItem("login");
 
 
-
 if(!passedThroughLogin)
 {
     window.location = "login.html";
-}else {
-    document.getElementById("usuario").innerHTML = sessionStorage.getItem("user");
+}
+
+// }else {
+//     document.getElementById("usuario").innerHTML = sessionStorage.getItem("user");
+// }
+
+function logout()
+{
+    sessionStorage.removeItem("user");
+    sessionStorage.setItem("login", "");
+    window.location = "index.html";
 }
 
 var showSpinner = function()
@@ -58,5 +66,17 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 
+    let htmlContentToAppend = "";
+    htmlContentToAppend +=
+        `<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            ` + sessionStorage.getItem("user") + `
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="cart.html">Mi carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <a class="dropdown-item" onclick="logout()">Cerrar sesión</a>
+        </div>`;
 
+
+    document.getElementById("menuUser").innerHTML = htmlContentToAppend;
 });

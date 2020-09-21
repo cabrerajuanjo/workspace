@@ -99,11 +99,12 @@ Luego se actualiza el valor medio, se resetean las estrellas, la variable que in
 como el contenido del la caja de texto para el comentario*/
 function upComment() {
     if (sessionStorage.getItem("selectedStarRating") == "true") {
+        let nowDate = new Date();
         comments.push({
             "score": parseInt(sessionStorage.getItem("currentScore")),
             "description": document.getElementById("comment").value,
             "user": sessionStorage.getItem("user"),
-            "dateTime": new Date().toLocaleString()
+            "dateTime": nowDate.getFullYear() + `-0` + (nowDate.getMonth() + 1)  + `-` + nowDate.getDate() + ` ` + nowDate.getHours() + `:` + nowDate.getMinutes() + `:` + nowDate.getSeconds()//.toLocaleString()
         });
         showCommentsList(comments);
         document.getElementById("averageScore").innerHTML = average(comments) + `/5` + `<span class="fa fa-star checked"></span>`;
@@ -142,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 if (resultObj.status === "ok") {
                     products = resultObj.data;
                     for (var i = 0; i < product.relatedProducts.length; i++) {
-                        relatedProductsImages[i] = products[product.relatedProducts[i]].imgSrc;
+                        relatedProductsImages[i] = products[product.relatedProducts[i]-1].imgSrc;
                     }
 
                     document.getElementById("relatedProducts").innerHTML = returnRelatedProductsCode(relatedProductsImages);
