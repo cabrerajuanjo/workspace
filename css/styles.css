@@ -143,3 +143,8 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.imgArticulo{
+    max-width: 110px;
+    /*max-height:110px;*/
+}

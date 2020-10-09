@@ -3,65 +3,107 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dropzone.css" rel="stylesheet">
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/dropzone.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <!-- <a class="py-2 d-none d-md-inline-block" href="" id="usuario"></a> -->
-      <div class="dropdown" id="menuUser">
-      </div>
-    </div>
-  </nav>
-  <div class="container p-5">
+    <nav class="site-header sticky-top py-1 bg-dark">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+            <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+            <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+            <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+            <!-- <a class="py-2 d-none d-md-inline-block" href="" id="usuario"></a> -->
+            <div class="dropdown" id="menuUser">
+            </div>
+        </div>
+    </nav>
+    <div class="container p-5">
+        <main role="main">
 
-  </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+            <div class="text-center p-4">
+                <h2>Carrito de compras</h2>
+            </div>
+            <h3>Artículos</h3>
+            <div id="articulos">
+            </div>
+            <br>
+            <h3>Tipo de envio</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipoDeEnvio" id="tipoDeEnvio1" checked>
+                <label class="form-check-label" for="exampleRadios1">Premium 2 a 5 días (15%)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipoDeEnvio" id="tipoDeEnvio2">
+                <label class="form-check-label" for="exampleRadios2">Express 5 a 8 días (7%)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="tipoDeEnvio" id="tipoDeEnvio3">
+                <label class="form-check-label" for="exampleRadios3">Standard 12 a 15 días (5%)</label>
+            </div>
+            <br>
+            <h3>Dirección de envío</h3>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="calle">Calle</label>
+                    <input type="text" class="form-control" id="calle" placeholder="Baker Street">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="numero">Número</label>
+                    <input type="text" class="form-control" id="numero" placeholder="221B">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="esquina">Esquina</label>
+                    <input type="text" class="form-control" id="esquina" placeholder="Ejido">
+                </div>
+            </div>
+            <br>
+            <h3>Costos</h3>
+            <div id="costos">
+            </div>
+        </main>
     </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+    <div id="spinner-wrapper">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 
 </html>
