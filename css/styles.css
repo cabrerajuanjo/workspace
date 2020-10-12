@@ -148,3 +148,8 @@ a.custom-card:hover {
     max-width: 110px;
     /*max-height:110px;*/
 }
+
+table {
+
+    width: 100%;
+    }

@@ -40,7 +40,7 @@
             <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
             <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-            <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+            <!--<a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>-->
             <!-- <a class="py-2 d-none d-md-inline-block" href="" id="usuario"></a> -->
             <div class="dropdown" id="menuUser">
             </div>
@@ -58,15 +58,15 @@
             <br>
             <h3>Tipo de envio</h3>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoDeEnvio" id="tipoDeEnvio1" checked>
+                <input class="form-check-input" type="radio" name="tipoDeEnvio" onclick="refreshCosts(0.15)" id="tipoDeEnvio1" checked>
                 <label class="form-check-label" for="exampleRadios1">Premium 2 a 5 días (15%)</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoDeEnvio" id="tipoDeEnvio2">
+                <input class="form-check-input" type="radio" name="tipoDeEnvio" onclick="refreshCosts(0.07)" id="tipoDeEnvio2">
                 <label class="form-check-label" for="exampleRadios2">Express 5 a 8 días (7%)</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="tipoDeEnvio" id="tipoDeEnvio3">
+                <input class="form-check-input" type="radio" name="tipoDeEnvio" onclick="refreshCosts(0.05)" id="tipoDeEnvio3">
                 <label class="form-check-label" for="exampleRadios3">Standard 12 a 15 días (5%)</label>
             </div>
             <br>
@@ -89,6 +89,7 @@
             <h3>Costos</h3>
             <div id="costos">
             </div>
+            <input type="button" class="btn btn-lg btn-primary btn-block" value="Concretar compra">
         </main>
     </div>
     <div id="spinner-wrapper">
