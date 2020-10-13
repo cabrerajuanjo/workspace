@@ -30,7 +30,7 @@ function refreshSubtotal()
 {
     for (let i = 0; i < currentQuantity.length; i++) {
         currentSubtotals[i] = (cartContent[i].currency == "UYU"? cartContent[i].unitCost*currentQuantity[i] : cartContent[i].unitCost*40*currentQuantity[i]);
-        document.getElementById("subtotalTabla" + i).innerHTML = currentSubtotals[i];
+        document.getElementById("subtotalTabla" + i).innerHTML = "$U " + currentSubtotals[i];
     }
 }
 
@@ -83,7 +83,7 @@ function htmlArticulos()
 }
 
 
-/*Devuelve html que formará la seección Costos*/
+/*Devuelve html que formará la sección Costos*/
 function htmlCostos()
 {
     var htmlContentToAppend = "";
@@ -129,7 +129,7 @@ function htmlCostos()
 
 /*Aqui se inicializa el listado de productos y las variables necesarias como currentRateForShipping y currentQuantity[]*/
 document.addEventListener("DOMContentLoaded", function(e){refreshSubtotal()
-    getJSONData(CART_INFO_URL).then(function(resultObj){
+    getJSONData(CART_INFO_URLL).then(function(resultObj){
         if (resultObj.status === "ok"){
             cartContent = resultObj.data.articles;
             for (let i = 0; i < cartContent.length; i++) {

@@ -49,6 +49,26 @@
     <div class="container p-5">
         <main role="main">
 
+            <div class="modal" id="metodoPagoModal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Medio de pago</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Guardar cambios</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="text-center p-4">
                 <h2>Carrito de compras</h2>
             </div>
@@ -83,6 +103,10 @@
                 <div class="form-group col-md-6">
                     <label for="esquina">Esquina</label>
                     <input type="text" class="form-control" id="esquina" placeholder="Ejido">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="mPago"></label>
+                    <input  id="mPago" type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#metodoPagoModal" value="Modificar método de pago">
                 </div>
             </div>
             <br>
