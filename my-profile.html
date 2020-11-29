@@ -34,25 +34,51 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <!--<a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>-->
-      <!-- <a class="py-2 d-none d-md-inline-block" href="" id="usuario"></a> -->
-      <div class="dropdown" id="menuUser">
-      </div>
-    </div>
-  </nav>
+  <div id="menuUser">
+  </div>
+  
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <main role="main">
+
+      <div class="modal" id="modalEditorPerfil" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar datos personales</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                  <label for="nombres">Nombres</label>
+                  <input type="text" class="form-control datos-perfil-modal" id="nombres" required placeholder="Juan José">
+                  <label for="apellidos">Apellidos</label>
+                  <input type="text" class="form-control datos-perfil-modal" id="apellidos" required placeholder="Cabrera Terra">
+                  <label for="documento">Número de cédula de identidad (sin puntos ni guión)</label>
+                  <input type="text" class="form-control datos-perfil-modal" id="documento" required placeholder="12345678">
+                  <label for="contacto">Teléfono de contacto</label>
+                  <input type="text" class="form-control datos-perfil-modal" id="contacto" required placeholder="22224444">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="button" class="btn btn-lg btn-primary btn-block" data-dismiss="modal" onclick="guardarCambiosPerfil()"  value="Editar">
+                </div>
+            </div>
+        </div>
     </div>
+
+      <h2>Datos personales</h2>
+      <br>
+      <label for="nombres">Nombres</label>
+      <input type="text" class="form-control datos-perfil" id="nombres" required placeholder="Juan José">
+      <label for="apellidos">Apellidos</label>
+      <input type="text" class="form-control datos-perfil" id="apellidos" required placeholder="Cabrera Terra">
+      <label for="documento">Número de cédula de identidad (sin puntos ni guión)</label>
+      <input type="text" class="form-control datos-perfil" id="documento" required placeholder="12345678">
+      <label for="contacto">Teléfono de contacto</label>
+      <input type="text" class="form-control datos-perfil" id="contacto" required placeholder="22224444">
+      <input type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#modalEditorPerfil" value="Editar">
+    </main>
   </div>
   <footer class="text-muted bg-light">
     <div class="container">
